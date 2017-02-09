@@ -1,0 +1,127 @@
+<div class="breadcrumbs" id="breadcrumbs" ng-app="myApp">
+    <ul class="breadcrumb">
+        <li>
+            <i class="ace-icon fa fa-home home-icon"></i>
+            <a href="#/singup">Switch</a>
+        </li>
+        <li class="active">Dashboard</li>
+    </ul>
+</div>
+<div class="page-content">
+    <div class="row">
+        <div class="space-6"></div>
+        <div class="col-sm-10 col-sm-offset-1">
+            <div id="login-box" class="login-box visible widget-box no-border">
+                <div class="widget-body">
+                    <div class="widget-main">
+                        <h4 class="header blue lighter bigger">
+                    <i class="icon-coffee green"></i>
+                    Existing Contacts
+                </h4>
+                        <div class="space-16"></div>
+
+                            <div class="panel panel-success">
+                              <div class="panel-heading">
+                                <div class="input-group">
+                                  <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                                  <form role="form" name="form">
+                                        <input type="text" class="form-control" placeholder="Search for a contact" ng-model="search" name="search">
+                                  </form>
+                                </div>
+                              </div>
+                              <div class="panel-body">
+                                <table class="table table-striped">
+                                  <thead>
+                                  <tr>
+                                        <th>Id</th>
+                                        <th>Full Name</th>
+                                        <th>Address</th>
+                                        <th>Phone Number</th>
+                                        <th>Creation date</th>
+                                        <th><span>Edit</span></th>
+                                        <th><span">Delete</span></th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                  <tr ng-repeat="contact in contacts | filter:search">
+                                            
+                                        <td>{{contact.uid}}</td>
+                                        <td>{{contact.name}}</td>
+                                        <td>{{contact.address}}</td>
+                                        <td>{{contact.phone}}</td>
+                                        <td>{{contact.created}}</td>
+                                        <!-- Calls the save method on the $scope to save the value of the current contact you want to update/delete and them calls the corresponding update/delete modal prompt. -->
+                                        <td><a ng-click="save(contact);" data-target="#UpdateModal" data-toggle="modal"><span class="glyphicon glyphicon-edit"></span></a></td> 
+                                        <td><a ng-click="save(contact);" data-target="#deleteModal" data-toggle="modal"><span class="glyphicon glyphicon-trash"></span></a></td>
+                                  </tr>
+                                 </tbody>
+                                </table>
+                              </div>
+                              <!-- in this form are hold the fields name, phone and address to create a new contact registr. -->
+                                <div class="modal" id="UpdateModal" tabindex="-1">
+                                    <div class="modal-dialog custom-class">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Edit</h4>
+                                            </div>
+                                            <div class="modal-body">
+
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>Full Name</th>
+                                                        <th>Address</th>
+                                                        <th>Phone Number</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>{{retain.uid}}</td>
+                                                        <td><input ng-model="retain.name" class="input-group" type="text" name="name" value= {{retain.name}}> </td>
+                                                        <td><input ng-model="retain.address" class="input-group" type="text" name="address" value={{retain.address}}> </td>
+                                                        <td><input ng-model="retain.phone" class="input-group" type="text" name="phone" value={{retain.phone}}> </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+
+                                                <div class="modal-footer">
+                                                    <button ng-click="update(retain);" class="btn btn-primary" data-dismiss="modal" >Update</button>
+                                                    <button class="btn btn-primary" data-dismiss="modal">Close</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                <!--   Creation of the modal to prompt the user if he really wants to delete the registry   -->
+                                <div class="modal" id="deleteModal" tabindex="-1">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Delete</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <h1 class="text-danger">Delete User: {{retain.uid}}?</h1>
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <button ng-click="delete(retain);" class="btn btn-primary" data-dismiss="modal" >Delete</button>
+                                                <button class="btn btn-primary" data-dismiss="modal">Close</button>
+                                            </div>
+                                         </div>
+                                     </div>
+                                </div>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.page-content -->

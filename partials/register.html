@@ -1,0 +1,70 @@
+<div class="breadcrumbs" id="breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <a href="#/dashboard">Switch</a> <!-- It is used to switch to dashboard's view -->
+        </li>
+        <li class="active">Creation</li>
+    </ul>
+</div>
+<div class="page-content">
+    <div class="row">
+        <div class="space-6"></div>
+        <div class="col-sm-6 col-sm-offset-1">
+            <div id="login-box" class="login-box visible widget-box no-border">
+                <div class="widget-body">
+                    <div class="widget-main">
+                        <h4 class="header blue lighter bigger">
+                            Creation of contact
+                        </h4>
+                        <br/>
+                       </div>
+                   <!-- form used to create a new contact -->
+                        <form name="signupForm" class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label no-padding-right" for="name">Name</label>
+                                <div class="col-sm-7">
+                                    <span class="block input-icon input-icon-right">
+                                <input type="text" class="form-control" placeholder="Name" ng-model="signup.name" />
+                            </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label no-padding-right" for="phone">Phone</label>
+                                <div class="col-sm-7">
+                                    <input type="number" class="form-control" ng-minlength="10" ng-maxlength="10" name="phone"
+                                           placeholder="Phone" ng-model="signup.phone" ng-required="true">
+                                    <span class="help-block" ng-show="signupForm.phone.$error.required || signupForm.phone.$error.number && signupForm.phone.$dirty">  <!-- [Makes the phone number validation] -->
+                                        Valid phone number is required  
+                                    </span>
+                                    <span class="help-block" ng-show="((signupForm.phone.$error.minlength || signupForm.phone.$error.maxlength) &&signupForm.phone.$dirty) ">
+                                        phone number should be 10 digits
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label no-padding-right" for="address">Address</label>
+                                <div class="col-sm-7">
+                                    <span class="block input-icon input-icon-right">
+                                <input type="text" class="form-control" placeholder="Address" ng-model="signup.address" />
+                            </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <span class="lbl col-sm-5"> </span>
+                                <div class="col-sm-7">                  <!-- [This form is used to signup a new contact] -->
+                                    <button type="submit" class="width-35 pull-right btn btn-sm btn-primary" ng-click="signUp(signup)" data-ng-disabled="signupForm.$invalid">
+                                        Create
+                                    </button>
+                                </div>
+                            </div>
+                            </fieldset>
+                            <span class="lbl col-sm-5"> </span>
+                           </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- /.page-content -->
