@@ -1,0 +1,3825 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "API para la gestion de SSO-AMX.",
+		"version": "v1.0.0",
+		"title": "Mi Claro | Single Sign-On",
+		"contact": {
+			"name": "Claro RD",
+			"url": "https://claro.com.do",
+			"email": "Mi_Claro_App@claro.com.do"
+		}
+	},
+	"host": "lxtssoamx02:7010",
+	"basePath": "/sso",
+	"tags": [{
+		"name": "Auth",
+		"description": "Todo lo relacionado factories la gestión de usuario. "
+	}, {
+		"name": "Email",
+		"description": "Gestion de e-mail, validacion de correo."
+	}, {
+		"name": "Main",
+		"description": "Base controller"
+	}, {
+		"name": "System",
+		"description": "System information"
+	}, {
+		"name": "User",
+		"description": "Todo lo relacionado factories la gestión de usuario. "
+	}, {
+		"name": "authorization-endpoint",
+		"description": "Authorization Endpoint"
+	}, {
+		"name": "check-token-endpoint",
+		"description": "Check Token Endpoint"
+	}, {
+		"name": "token-endpoint",
+		"description": "Token Endpoint"
+	}, {
+		"name": "whitelabel-approval-endpoint",
+		"description": "Whitelabel Approval Endpoint"
+	}, {
+		"name": "whitelabel-error-endpoint",
+		"description": "Whitelabel Error Endpoint"
+	}],
+	"paths": {
+		"/": {
+			"get": {
+				"tags": ["Main"],
+				"summary": "Home Page",
+				"operationId": "indexUsingGET",
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			},
+			"head": {
+				"tags": ["Main"],
+				"summary": "Home Page",
+				"operationId": "indexUsingHEAD",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"deprecated": false
+			},
+			"post": {
+				"tags": ["Main"],
+				"summary": "Home Page",
+				"operationId": "indexUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			},
+			"put": {
+				"tags": ["Main"],
+				"summary": "Home Page",
+				"operationId": "indexUsingPUT",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			},
+			"delete": {
+				"tags": ["Main"],
+				"summary": "Home Page",
+				"operationId": "indexUsingDELETE",
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"deprecated": false
+			},
+			"options": {
+				"tags": ["Main"],
+				"summary": "Home Page",
+				"operationId": "indexUsingOPTIONS",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"deprecated": false
+			},
+			"patch": {
+				"tags": ["Main"],
+				"summary": "Home Page",
+				"operationId": "indexUsingPATCH",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/auth/active": {
+			"post": {
+				"tags": ["Auth"],
+				"summary": "Block or unblock a user",
+				"operationId": "activeMethodUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "active",
+					"in": "query",
+					"description": "active",
+					"required": true,
+					"type": "boolean"
+				}, {
+					"name": "username",
+					"in": "query",
+					"description": "username",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/UserEntity"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"security": [{
+					"Authorization": []
+				}],
+				"deprecated": false
+			}
+		},
+		"/auth/block": {
+			"post": {
+				"tags": ["Auth"],
+				"summary": "Block or unblock a user",
+				"operationId": "blockUserMethodUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "lockDate",
+					"in": "query",
+					"description": "lockDate",
+					"required": true,
+					"type": "integer",
+					"format": "int64"
+				}, {
+					"name": "username",
+					"in": "query",
+					"description": "username",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SsoResponse"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"security": [{
+					"Authorization": []
+				}],
+				"deprecated": false
+			}
+		},
+		"/auth/changePassword": {
+			"post": {
+				"tags": ["Auth"],
+				"summary": "Change user password",
+				"operationId": "changePasswordMethodUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"in": "body",
+					"name": "changePasswordInput",
+					"description": "changePasswordInput",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/ChangePasswordInput"
+					}
+				}, {
+					"name": "username",
+					"in": "query",
+					"description": "username",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SsoResponse"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"security": [{
+					"Authorization": []
+				}],
+				"deprecated": false
+			}
+		},
+		"/auth/logout": {
+			"post": {
+				"tags": ["Auth"],
+				"summary": "Validate the user password",
+				"operationId": "tokenUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "token",
+					"in": "query",
+					"description": "token",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OAuth2AccessToken"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"security": [{
+					"Authorization": []
+				}],
+				"deprecated": false
+			}
+		},
+		"/auth/validatePassword": {
+			"post": {
+				"tags": ["Auth"],
+				"summary": "Validate the user password",
+				"operationId": "tokenUsingPOST_1",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"in": "body",
+					"name": "signInInput",
+					"description": "signInInput",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/SignInInput"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ResponseEntity"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"security": [{
+					"Authorization": []
+				}],
+				"deprecated": false
+			}
+		},
+		"/auth/validateToken": {
+			"post": {
+				"tags": ["Auth"],
+				"summary": "Validate a token",
+				"operationId": "validateTokenMethodUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "token",
+					"in": "query",
+					"description": "token",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SsoResponse"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"security": [{
+					"Authorization": []
+				}],
+				"deprecated": false
+			}
+		},
+		"/email/confirmAccountRecover": {
+			"post": {
+				"tags": ["Email"],
+				"summary": "Confirm the account recover token",
+				"operationId": "confirmAccountRecoverMethodUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"description": "CLIENT_ID",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"in": "body",
+					"name": "passwordInput",
+					"description": "passwordInput",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/PasswordInput"
+					}
+				}, {
+					"name": "token",
+					"in": "query",
+					"description": "token",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/UserEntityResponse"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/email/confirmEmail": {
+			"post": {
+				"tags": ["Email"],
+				"summary": "Confirm the email token",
+				"operationId": "confirmEmailMethodUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "token",
+					"in": "query",
+					"description": "token",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/UserEntityResponse"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/email/confirmEmailChange": {
+			"post": {
+				"tags": ["Email"],
+				"summary": "Confirm the user email change",
+				"operationId": "confirmChangeMethodUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "token",
+					"in": "query",
+					"description": "token",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/UserEntityResponse"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"security": [{
+					"Authorization": []
+				}],
+				"deprecated": false
+			}
+		},
+		"/email/sendAccountRecover": {
+			"post": {
+				"tags": ["Email"],
+				"summary": "Send an email to recover account",
+				"operationId": "sendAccountRecoverMethodUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "documentId",
+					"in": "query",
+					"description": "documentId",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "domain",
+					"in": "query",
+					"description": "domain",
+					"required": true,
+					"type": "string",
+					"enum": ["CLIENT", "BUSINESS", "COMPANY", "ADMIN"]
+				}, {
+					"name": "url",
+					"in": "query",
+					"description": "url",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ValidationsResponse"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/email/sendEmailChange": {
+			"post": {
+				"tags": ["Email"],
+				"summary": "Send an email to change the user email",
+				"operationId": "sendChangeMethodUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "email",
+					"in": "query",
+					"description": "email",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "url",
+					"in": "query",
+					"description": "url",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "username",
+					"in": "query",
+					"description": "username",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ValidationResponse"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"security": [{
+					"Authorization": []
+				}],
+				"deprecated": false
+			}
+		},
+		"/email/sendEmailConfirm": {
+			"post": {
+				"tags": ["Email"],
+				"summary": "Send an email to validate the user email",
+				"operationId": "sendConfirmMethodUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "url",
+					"in": "query",
+					"description": "url",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "username",
+					"in": "query",
+					"description": "username",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ValidationResponse"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/email/tokenValidation": {
+			"post": {
+				"tags": ["Email"],
+				"summary": "Validate an email token",
+				"operationId": "tokenValidationMethodUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "token",
+					"in": "query",
+					"description": "token",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "type",
+					"in": "query",
+					"description": "type",
+					"required": false,
+					"type": "string",
+					"enum": ["EMAIL_CHANGE", "ACCOUNT_RECOVER", "EMAIL_CONFIRM"]
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ValidationResponse"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/oauth/authorize": {
+			"get": {
+				"tags": ["authorization-endpoint"],
+				"summary": "authorize",
+				"operationId": "authorizeUsingGET",
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "complete",
+					"in": "query",
+					"required": false,
+					"type": "boolean"
+				}, {
+					"name": "model",
+					"in": "query",
+					"description": "model",
+					"required": false,
+					"type": "object"
+				}, {
+					"name": "name",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "parameters",
+					"in": "query",
+					"description": "parameters",
+					"required": true,
+					"items": {
+						"type": "object",
+						"additionalProperties": {
+							"type": "string"
+						}
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ModelAndView"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			},
+			"head": {
+				"tags": ["authorization-endpoint"],
+				"summary": "authorize",
+				"operationId": "authorizeUsingHEAD",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "complete",
+					"in": "query",
+					"required": false,
+					"type": "boolean"
+				}, {
+					"name": "model",
+					"in": "query",
+					"description": "model",
+					"required": false,
+					"type": "object"
+				}, {
+					"name": "name",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "parameters",
+					"in": "query",
+					"description": "parameters",
+					"required": true,
+					"items": {
+						"type": "object",
+						"additionalProperties": {
+							"type": "string"
+						}
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ModelAndView"
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"deprecated": false
+			},
+			"post": {
+				"tags": ["authorization-endpoint"],
+				"summary": "approveOrDeny",
+				"operationId": "approveOrDenyUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "approvalParameters",
+					"in": "query",
+					"description": "approvalParameters",
+					"required": true,
+					"items": {
+						"type": "object",
+						"additionalProperties": {
+							"type": "string"
+						}
+					}
+				}, {
+					"name": "complete",
+					"in": "query",
+					"required": false,
+					"type": "boolean"
+				}, {
+					"name": "model",
+					"in": "query",
+					"description": "model",
+					"required": false,
+					"type": "object"
+				}, {
+					"name": "name",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "user_oauth_approval",
+					"in": "query",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/View"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			},
+			"put": {
+				"tags": ["authorization-endpoint"],
+				"summary": "authorize",
+				"operationId": "authorizeUsingPUT",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "complete",
+					"in": "query",
+					"required": false,
+					"type": "boolean"
+				}, {
+					"name": "model",
+					"in": "query",
+					"description": "model",
+					"required": false,
+					"type": "object"
+				}, {
+					"name": "name",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "parameters",
+					"in": "query",
+					"description": "parameters",
+					"required": true,
+					"items": {
+						"type": "object",
+						"additionalProperties": {
+							"type": "string"
+						}
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ModelAndView"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			},
+			"delete": {
+				"tags": ["authorization-endpoint"],
+				"summary": "authorize",
+				"operationId": "authorizeUsingDELETE",
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "complete",
+					"in": "query",
+					"required": false,
+					"type": "boolean"
+				}, {
+					"name": "model",
+					"in": "query",
+					"description": "model",
+					"required": false,
+					"type": "object"
+				}, {
+					"name": "name",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "parameters",
+					"in": "query",
+					"description": "parameters",
+					"required": true,
+					"items": {
+						"type": "object",
+						"additionalProperties": {
+							"type": "string"
+						}
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ModelAndView"
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"deprecated": false
+			},
+			"options": {
+				"tags": ["authorization-endpoint"],
+				"summary": "authorize",
+				"operationId": "authorizeUsingOPTIONS",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "complete",
+					"in": "query",
+					"required": false,
+					"type": "boolean"
+				}, {
+					"name": "model",
+					"in": "query",
+					"description": "model",
+					"required": false,
+					"type": "object"
+				}, {
+					"name": "name",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "parameters",
+					"in": "query",
+					"description": "parameters",
+					"required": true,
+					"items": {
+						"type": "object",
+						"additionalProperties": {
+							"type": "string"
+						}
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ModelAndView"
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"deprecated": false
+			},
+			"patch": {
+				"tags": ["authorization-endpoint"],
+				"summary": "authorize",
+				"operationId": "authorizeUsingPATCH",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "complete",
+					"in": "query",
+					"required": false,
+					"type": "boolean"
+				}, {
+					"name": "model",
+					"in": "query",
+					"description": "model",
+					"required": false,
+					"type": "object"
+				}, {
+					"name": "name",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "parameters",
+					"in": "query",
+					"description": "parameters",
+					"required": true,
+					"items": {
+						"type": "object",
+						"additionalProperties": {
+							"type": "string"
+						}
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ModelAndView"
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/oauth/check_token": {
+			"get": {
+				"tags": ["check-token-endpoint"],
+				"summary": "checkToken",
+				"operationId": "checkTokenUsingGET",
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "token",
+					"in": "query",
+					"description": "token",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "object"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			},
+			"head": {
+				"tags": ["check-token-endpoint"],
+				"summary": "checkToken",
+				"operationId": "checkTokenUsingHEAD",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "token",
+					"in": "query",
+					"description": "token",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "object"
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"deprecated": false
+			},
+			"post": {
+				"tags": ["check-token-endpoint"],
+				"summary": "checkToken",
+				"operationId": "checkTokenUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "token",
+					"in": "query",
+					"description": "token",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "object"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			},
+			"put": {
+				"tags": ["check-token-endpoint"],
+				"summary": "checkToken",
+				"operationId": "checkTokenUsingPUT",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "token",
+					"in": "query",
+					"description": "token",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "object"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			},
+			"delete": {
+				"tags": ["check-token-endpoint"],
+				"summary": "checkToken",
+				"operationId": "checkTokenUsingDELETE",
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "token",
+					"in": "query",
+					"description": "token",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "object"
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"deprecated": false
+			},
+			"options": {
+				"tags": ["check-token-endpoint"],
+				"summary": "checkToken",
+				"operationId": "checkTokenUsingOPTIONS",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "token",
+					"in": "query",
+					"description": "token",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "object"
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"deprecated": false
+			},
+			"patch": {
+				"tags": ["check-token-endpoint"],
+				"summary": "checkToken",
+				"operationId": "checkTokenUsingPATCH",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "token",
+					"in": "query",
+					"description": "token",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "object"
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/oauth/confirm_access": {
+			"get": {
+				"tags": ["whitelabel-approval-endpoint"],
+				"summary": "getAccessConfirmation",
+				"operationId": "getAccessConfirmationUsingGET",
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "model",
+					"in": "query",
+					"description": "model",
+					"required": false,
+					"type": "object"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ModelAndView"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			},
+			"head": {
+				"tags": ["whitelabel-approval-endpoint"],
+				"summary": "getAccessConfirmation",
+				"operationId": "getAccessConfirmationUsingHEAD",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "model",
+					"in": "query",
+					"description": "model",
+					"required": false,
+					"type": "object"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ModelAndView"
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"deprecated": false
+			},
+			"post": {
+				"tags": ["whitelabel-approval-endpoint"],
+				"summary": "getAccessConfirmation",
+				"operationId": "getAccessConfirmationUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "model",
+					"in": "query",
+					"description": "model",
+					"required": false,
+					"type": "object"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ModelAndView"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			},
+			"put": {
+				"tags": ["whitelabel-approval-endpoint"],
+				"summary": "getAccessConfirmation",
+				"operationId": "getAccessConfirmationUsingPUT",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "model",
+					"in": "query",
+					"description": "model",
+					"required": false,
+					"type": "object"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ModelAndView"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			},
+			"delete": {
+				"tags": ["whitelabel-approval-endpoint"],
+				"summary": "getAccessConfirmation",
+				"operationId": "getAccessConfirmationUsingDELETE",
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "model",
+					"in": "query",
+					"description": "model",
+					"required": false,
+					"type": "object"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ModelAndView"
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"deprecated": false
+			},
+			"options": {
+				"tags": ["whitelabel-approval-endpoint"],
+				"summary": "getAccessConfirmation",
+				"operationId": "getAccessConfirmationUsingOPTIONS",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "model",
+					"in": "query",
+					"description": "model",
+					"required": false,
+					"type": "object"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ModelAndView"
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"deprecated": false
+			},
+			"patch": {
+				"tags": ["whitelabel-approval-endpoint"],
+				"summary": "getAccessConfirmation",
+				"operationId": "getAccessConfirmationUsingPATCH",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "model",
+					"in": "query",
+					"description": "model",
+					"required": false,
+					"type": "object"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ModelAndView"
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/oauth/error": {
+			"get": {
+				"tags": ["whitelabel-error-endpoint"],
+				"summary": "handleError",
+				"operationId": "handleErrorUsingGET",
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ModelAndView"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			},
+			"head": {
+				"tags": ["whitelabel-error-endpoint"],
+				"summary": "handleError",
+				"operationId": "handleErrorUsingHEAD",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ModelAndView"
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"deprecated": false
+			},
+			"post": {
+				"tags": ["whitelabel-error-endpoint"],
+				"summary": "handleError",
+				"operationId": "handleErrorUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ModelAndView"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			},
+			"put": {
+				"tags": ["whitelabel-error-endpoint"],
+				"summary": "handleError",
+				"operationId": "handleErrorUsingPUT",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ModelAndView"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			},
+			"delete": {
+				"tags": ["whitelabel-error-endpoint"],
+				"summary": "handleError",
+				"operationId": "handleErrorUsingDELETE",
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ModelAndView"
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"deprecated": false
+			},
+			"options": {
+				"tags": ["whitelabel-error-endpoint"],
+				"summary": "handleError",
+				"operationId": "handleErrorUsingOPTIONS",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ModelAndView"
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"deprecated": false
+			},
+			"patch": {
+				"tags": ["whitelabel-error-endpoint"],
+				"summary": "handleError",
+				"operationId": "handleErrorUsingPATCH",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ModelAndView"
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/oauth/token": {
+			"get": {
+				"tags": ["token-endpoint"],
+				"summary": "getAccessToken",
+				"operationId": "getAccessTokenUsingGET",
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "name",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "parameters",
+					"in": "query",
+					"description": "parameters",
+					"required": true,
+					"items": {
+						"type": "object",
+						"additionalProperties": {
+							"type": "string"
+						}
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OAuth2AccessToken"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			},
+			"post": {
+				"tags": ["token-endpoint"],
+				"summary": "postAccessToken",
+				"operationId": "postAccessTokenUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "name",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "parameters",
+					"in": "query",
+					"description": "parameters",
+					"required": true,
+					"items": {
+						"type": "object",
+						"additionalProperties": {
+							"type": "string"
+						}
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OAuth2AccessToken"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/swagger": {
+			"get": {
+				"tags": ["Main"],
+				"summary": "Home Page",
+				"operationId": "indexUsingGET_1",
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			},
+			"head": {
+				"tags": ["Main"],
+				"summary": "Home Page",
+				"operationId": "indexUsingHEAD_1",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"deprecated": false
+			},
+			"post": {
+				"tags": ["Main"],
+				"summary": "Home Page",
+				"operationId": "indexUsingPOST_1",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			},
+			"put": {
+				"tags": ["Main"],
+				"summary": "Home Page",
+				"operationId": "indexUsingPUT_1",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			},
+			"delete": {
+				"tags": ["Main"],
+				"summary": "Home Page",
+				"operationId": "indexUsingDELETE_1",
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"deprecated": false
+			},
+			"options": {
+				"tags": ["Main"],
+				"summary": "Home Page",
+				"operationId": "indexUsingOPTIONS_1",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"deprecated": false
+			},
+			"patch": {
+				"tags": ["Main"],
+				"summary": "Home Page",
+				"operationId": "indexUsingPATCH_1",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/system/deleteActivities": {
+			"get": {
+				"tags": ["System"],
+				"summary": "SSO Errors",
+				"operationId": "getDeleteActivitiesUsingGET",
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"enum": ["INACTIVE_USER", "DELETE_IN_MI_CLARO", "DELETE_IN_LOCAL", "DELETE_IN_SSO"]
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/system/errors": {
+			"get": {
+				"tags": ["System"],
+				"summary": "SSO Errors",
+				"operationId": "getErrorsMethodUsingGET",
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "object",
+							"additionalProperties": {
+								"type": "string"
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/user": {
+			"get": {
+				"tags": ["User"],
+				"summary": "Get user information",
+				"operationId": "getUserMethodUsingGET",
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "username",
+					"in": "query",
+					"description": "username",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/FullUserResponse"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"security": [{
+					"Authorization": []
+				}],
+				"deprecated": false
+			},
+			"post": {
+				"tags": ["User"],
+				"summary": "SingUp | Create User",
+				"operationId": "postUserMethodUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"description": "CLIENT_ID",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "domain",
+					"in": "query",
+					"description": "domain",
+					"required": true,
+					"type": "string",
+					"enum": ["CLIENT", "BUSINESS", "COMPANY", "ADMIN"]
+				}, {
+					"in": "body",
+					"name": "userInput",
+					"description": "userInput",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/UserInput"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/UserEntityResponse"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": true
+			},
+			"put": {
+				"tags": ["User"],
+				"summary": "Update user information",
+				"operationId": "putUserMethodUsingPUT",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"in": "body",
+					"name": "userUpdateInput",
+					"description": "userUpdateInput",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/UserUpdateInput"
+					}
+				}, {
+					"name": "username",
+					"in": "query",
+					"description": "username",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/UserEntityResponse"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"security": [{
+					"Authorization": []
+				}],
+				"deprecated": false
+			},
+			"delete": {
+				"tags": ["User"],
+				"summary": "Delete user",
+				"operationId": "deleteUserMethodUsingDELETE",
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "username",
+					"in": "query",
+					"description": "username",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/UserDeleteActivityEntity"
+							}
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"security": [{
+					"Authorization": []
+				}],
+				"deprecated": false
+			}
+		},
+		"/user/byDocumentId": {
+			"get": {
+				"tags": ["User"],
+				"summary": "Find user by documentId",
+				"operationId": "getUserByDocumentIdMethodUsingGET",
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "documentId",
+					"in": "query",
+					"description": "documentId",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "domain",
+					"in": "query",
+					"description": "domain",
+					"required": true,
+					"type": "string",
+					"enum": ["CLIENT", "BUSINESS", "COMPANY", "ADMIN"]
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/UserEntityListResponse"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/user/byEmail": {
+			"get": {
+				"tags": ["User"],
+				"summary": "Find user by email",
+				"operationId": "getUserByEmailMethodUsingGET",
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "domain",
+					"in": "query",
+					"description": "domain",
+					"required": true,
+					"type": "string",
+					"enum": ["CLIENT", "BUSINESS", "COMPANY", "ADMIN"]
+				}, {
+					"name": "email",
+					"in": "query",
+					"description": "email",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/UserEntityListResponse"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/user/create": {
+			"post": {
+				"tags": ["User"],
+				"summary": "SingUp | Create User",
+				"operationId": "createUserUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"description": "CLIENT_ID",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "domain",
+					"in": "query",
+					"description": "domain",
+					"required": true,
+					"type": "string",
+					"enum": ["CLIENT", "BUSINESS", "COMPANY", "ADMIN"]
+				}, {
+					"in": "body",
+					"name": "userInput",
+					"description": "userInput",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/UserInput"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OAuth2AccessToken"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/user/deleteOnlyInSso": {
+			"delete": {
+				"tags": ["User"],
+				"summary": "Delete user",
+				"operationId": "deleteOnlyInSsoMethodUsingDELETE",
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "username",
+					"in": "query",
+					"description": "username",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/UserDeleteActivityEntity"
+							}
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"security": [{
+					"Authorization": []
+				}],
+				"deprecated": false
+			}
+		},
+		"/user/migrate": {
+			"post": {
+				"tags": ["User"],
+				"summary": "Migrate | Migrate User and exec login",
+				"operationId": "migrateUserUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"description": "CLIENT_ID",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"in": "body",
+					"name": "userInput",
+					"description": "userInput",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/UserInput"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OAuth2AccessToken"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/user/withOutValidations": {
+			"post": {
+				"tags": ["User"],
+				"summary": "SingUp | Create User, without validations",
+				"operationId": "postUserMethodWithOutValidationsMethodUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "CLIENT_ID",
+					"in": "header",
+					"description": "CLIENT_ID",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "REMOTE_IP",
+					"in": "header",
+					"required": true,
+					"type": "string"
+				}, {
+					"in": "body",
+					"name": "userInput",
+					"description": "userInput",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/UserInput"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/UserEntityResponse"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": true
+			}
+		}
+	},
+	"securityDefinitions": {
+		"Authorization": {
+			"type": "apiKey",
+			"name": "Authorization",
+			"in": "header"
+		}
+	},
+	"definitions": {
+		"ChangePasswordInput": {
+			"type": "object",
+			"properties": {
+				"oldPassword": {
+					"type": "string"
+				},
+				"password": {
+					"type": "string"
+				},
+				"passwordConfirm": {
+					"type": "string"
+				}
+			},
+			"title": "ChangePasswordInput"
+		},
+		"EmailEntity": {
+			"type": "object",
+			"properties": {
+				"created": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"description": {
+					"type": "string"
+				},
+				"id": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"subject": {
+					"type": "string"
+				},
+				"updated": {
+					"type": "string",
+					"format": "date-time"
+				}
+			},
+			"title": "EmailEntity"
+		},
+		"FullUser": {
+			"type": "object",
+			"properties": {
+				"localUser": {
+					"$ref": "#/definitions/UserEntity"
+				},
+				"ssoUser": {
+					"$ref": "#/definitions/SsoUser"
+				}
+			},
+			"title": "FullUser"
+		},
+		"FullUserResponse": {
+			"type": "object",
+			"properties": {
+				"error": {
+					"$ref": "#/definitions/SsoError"
+				},
+				"fullUser": {
+					"$ref": "#/definitions/FullUser"
+				}
+			},
+			"title": "FullUserResponse"
+		},
+		"ModelAndView": {
+			"type": "object",
+			"properties": {
+				"empty": {
+					"type": "boolean"
+				},
+				"model": {
+					"type": "object"
+				},
+				"modelMap": {
+					"type": "object",
+					"additionalProperties": {
+						"type": "object"
+					}
+				},
+				"reference": {
+					"type": "boolean"
+				},
+				"status": {
+					"type": "string",
+					"enum": ["100", "101", "102", "103", "200", "201", "202", "203", "204", "205", "206", "207", "208", "226", "300", "301", "302", "303", "304", "305", "307", "308", "400", "401", "402", "403", "404", "405", "406", "407", "408", "409", "410", "411", "412", "413", "414", "415", "416", "417", "418", "419", "420", "421", "422", "423", "424", "426", "428", "429", "431", "451", "500", "501", "502", "503", "504", "505", "506", "507", "508", "509", "510", "511"]
+				},
+				"view": {
+					"$ref": "#/definitions/View"
+				},
+				"viewName": {
+					"type": "string"
+				}
+			},
+			"title": "ModelAndView"
+		},
+		"OAuth2AccessToken": {
+			"type": "object",
+			"properties": {
+				"additionalInformation": {
+					"type": "object"
+				},
+				"expiration": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"expired": {
+					"type": "boolean"
+				},
+				"expiresIn": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"refreshToken": {
+					"$ref": "#/definitions/OAuth2RefreshToken"
+				},
+				"scope": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"tokenType": {
+					"type": "string"
+				},
+				"value": {
+					"type": "string"
+				}
+			},
+			"title": "OAuth2AccessToken"
+		},
+		"OAuth2RefreshToken": {
+			"type": "object",
+			"properties": {
+				"value": {
+					"type": "string"
+				}
+			},
+			"title": "OAuth2RefreshToken"
+		},
+		"PasswordInput": {
+			"type": "object",
+			"properties": {
+				"password": {
+					"type": "string"
+				},
+				"passwordConfirm": {
+					"type": "string"
+				}
+			},
+			"title": "PasswordInput"
+		},
+		"ResponseEntity": {
+			"type": "object",
+			"properties": {
+				"body": {
+					"type": "object"
+				},
+				"statusCode": {
+					"type": "string",
+					"enum": ["100", "101", "102", "103", "200", "201", "202", "203", "204", "205", "206", "207", "208", "226", "300", "301", "302", "303", "304", "305", "307", "308", "400", "401", "402", "403", "404", "405", "406", "407", "408", "409", "410", "411", "412", "413", "414", "415", "416", "417", "418", "419", "420", "421", "422", "423", "424", "426", "428", "429", "431", "451", "500", "501", "502", "503", "504", "505", "506", "507", "508", "509", "510", "511"]
+				},
+				"statusCodeValue": {
+					"type": "integer",
+					"format": "int32"
+				}
+			},
+			"title": "ResponseEntity"
+		},
+		"SignInInput": {
+			"type": "object",
+			"properties": {
+				"password": {
+					"type": "string"
+				},
+				"username": {
+					"type": "string"
+				}
+			},
+			"title": "SignInInput"
+		},
+		"SsoError": {
+			"type": "object",
+			"properties": {
+				"code": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"description": {
+					"type": "string"
+				}
+			},
+			"title": "SsoError"
+		},
+		"SsoResponse": {
+			"type": "object",
+			"properties": {
+				"error": {
+					"$ref": "#/definitions/SsoError"
+				}
+			},
+			"title": "SsoResponse"
+		},
+		"SsoUser": {
+			"type": "object",
+			"properties": {
+				"active": {
+					"type": "boolean"
+				},
+				"creationsource": {
+					"type": "string",
+					"enum": ["MiClaroWebDo", "MiClaroAppDo", "MiClaroPymeDo", "SystemDo"]
+				},
+				"lockdate": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"loginname": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"passwordfailedattemptscounter": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"passwordfailedattemptsdate": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"pinfailedattemptscounter": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"pinfailedattemptsdate": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"requestedpasswordate": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"requestedpasswordcounter": {
+					"type": "integer",
+					"format": "int32"
+				}
+			},
+			"title": "SsoUser"
+		},
+		"UserDeleteActivityEntity": {
+			"type": "object",
+			"properties": {
+				"created": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"description": {
+					"type": "string"
+				},
+				"id": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"result": {
+					"type": "boolean"
+				},
+				"type": {
+					"type": "string",
+					"enum": ["INACTIVE_USER", "DELETE_IN_MI_CLARO", "DELETE_IN_LOCAL", "DELETE_IN_SSO"]
+				},
+				"username": {
+					"type": "string"
+				}
+			},
+			"title": "UserDeleteActivityEntity"
+		},
+		"UserDomainEntity": {
+			"type": "object",
+			"properties": {
+				"created": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"description": {
+					"type": "string"
+				},
+				"id": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"updated": {
+					"type": "string",
+					"format": "date-time"
+				}
+			},
+			"title": "UserDomainEntity"
+		},
+		"UserEntity": {
+			"type": "object",
+			"properties": {
+				"active": {
+					"type": "boolean"
+				},
+				"address": {
+					"type": "string"
+				},
+				"birthday": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"created": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"deleted": {
+					"type": "boolean"
+				},
+				"documentId": {
+					"type": "string"
+				},
+				"domain": {
+					"$ref": "#/definitions/UserDomainEntity"
+				},
+				"email": {
+					"type": "string"
+				},
+				"emailVerified": {
+					"type": "boolean"
+				},
+				"fullName": {
+					"type": "string"
+				},
+				"id": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"mobilePhone": {
+					"type": "string"
+				},
+				"phone": {
+					"type": "string"
+				},
+				"promotion": {
+					"type": "boolean"
+				},
+				"updated": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"username": {
+					"type": "string"
+				},
+				"validations": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ValidationEntity"
+					}
+				}
+			},
+			"title": "UserEntity"
+		},
+		"UserEntityListResponse": {
+			"type": "object",
+			"properties": {
+				"error": {
+					"$ref": "#/definitions/SsoError"
+				},
+				"users": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/UserEntity"
+					}
+				}
+			},
+			"title": "UserEntityListResponse"
+		},
+		"UserEntityResponse": {
+			"type": "object",
+			"properties": {
+				"error": {
+					"$ref": "#/definitions/SsoError"
+				},
+				"user": {
+					"$ref": "#/definitions/UserEntity"
+				}
+			},
+			"title": "UserEntityResponse"
+		},
+		"UserInput": {
+			"type": "object",
+			"properties": {
+				"address": {
+					"type": "string"
+				},
+				"birthday": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"documentId": {
+					"type": "string"
+				},
+				"email": {
+					"type": "string"
+				},
+				"fullName": {
+					"type": "string"
+				},
+				"mobilePhone": {
+					"type": "string"
+				},
+				"password": {
+					"type": "string"
+				},
+				"passwordConfirm": {
+					"type": "string"
+				},
+				"phone": {
+					"type": "string"
+				},
+				"promotion": {
+					"type": "boolean"
+				},
+				"username": {
+					"type": "string"
+				}
+			},
+			"title": "UserInput"
+		},
+		"UserUpdateInput": {
+			"type": "object",
+			"properties": {
+				"address": {
+					"type": "string"
+				},
+				"birthday": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"documentId": {
+					"type": "string"
+				},
+				"email": {
+					"type": "string"
+				},
+				"fullName": {
+					"type": "string"
+				},
+				"mobilePhone": {
+					"type": "string"
+				},
+				"phone": {
+					"type": "string"
+				},
+				"promotion": {
+					"type": "boolean"
+				}
+			},
+			"title": "UserUpdateInput"
+		},
+		"ValidationEntity": {
+			"type": "object",
+			"properties": {
+				"active": {
+					"type": "boolean"
+				},
+				"completed": {
+					"type": "boolean"
+				},
+				"completedDate": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"created": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"data": {
+					"type": "string"
+				},
+				"expire": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"token": {
+					"type": "string"
+				},
+				"type": {
+					"$ref": "#/definitions/EmailEntity"
+				},
+				"typeId": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"updated": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"url": {
+					"type": "string"
+				}
+			},
+			"title": "ValidationEntity"
+		},
+		"ValidationResponse": {
+			"type": "object",
+			"properties": {
+				"error": {
+					"$ref": "#/definitions/SsoError"
+				},
+				"validation": {
+					"$ref": "#/definitions/ValidationEntity"
+				}
+			},
+			"title": "ValidationResponse"
+		},
+		"ValidationsResponse": {
+			"type": "object",
+			"properties": {
+				"error": {
+					"$ref": "#/definitions/SsoError"
+				},
+				"validations": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ValidationEntity"
+					}
+				}
+			},
+			"title": "ValidationsResponse"
+		},
+		"View": {
+			"type": "object",
+			"properties": {
+				"contentType": {
+					"type": "string"
+				}
+			},
+			"title": "View"
+		}
+	}
+}
